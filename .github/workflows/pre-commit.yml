@@ -24,4 +24,4 @@ jobs:
         echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
     - uses: pre-commit/action@v2.0.3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PRE_COMMIT_PAT }}
