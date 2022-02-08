@@ -2,6 +2,7 @@
 # File is synced from Kong/template-generic and will be overwritten
 name: pre-commit
 
+
 on:  # yamllint disable-line rule:truthy
   pull_request:
   push:
