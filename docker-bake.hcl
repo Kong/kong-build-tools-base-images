@@ -37,3 +37,11 @@ target "deb-focal" {
     notequal("",TAG) ? "kong/kong-build-tools:deb-focal-${TAG}": ""
   ]
 }
+
+target "rpm-8" {
+  dockerfile = "Dockerfile.8.rpm"
+  platforms = ["linux/amd64", "linux/arm64"]
+  tags = [    "kong/kong-build-tools:rpm-8",
+    notequal("",TAG) ? "kong/kong-build-tools:rpm-8-${TAG}": ""
+  ]
+}
