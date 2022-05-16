@@ -29,3 +29,11 @@ target "deb" {
     notequal("",TAG) ? "kong/kong-build-tools:deb-${TAG}": ""
   ]
 }
+
+target "deb-focal" {
+  dockerfile = "Dockerfile.focal.deb"
+  platforms = ["linux/amd64", "linux/arm64"]
+  tags = [    "kong/kong-build-tools:deb-focal",
+    notequal("",TAG) ? "kong/kong-build-tools:deb-focal-${TAG}": ""
+  ]
+}

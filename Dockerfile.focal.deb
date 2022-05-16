@@ -1,0 +1,33 @@
+FROM ubuntu:20.04
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        curl \
+        gettext-base \
+        libgd-dev \
+        libgeoip-dev \
+        libncurses5-dev \
+        libperl-dev \
+        libreadline-dev \
+        libxslt1-dev \
+        make \
+        perl \
+        unzip \
+        zlib1g-dev \
+        libssl-dev \
+        git \
+        m4 \
+        file \
+        ssh \
+        valgrind \
+        cmake \
+        libtinfo5 \
+        unzip \
+        libunwind-dev \
+        libgcc-9-dev \
+        libstdc++-9-dev \
+    && curl -sSL https://github.com/mikefarah/yq/releases/download/1.15.0/yq_linux_amd64 -o /usr/local/bin/yaml \
+    && chmod +x /usr/local/bin/yaml
