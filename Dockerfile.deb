@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
@@ -24,5 +24,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         ssh \
         valgrind \
         cmake \
-    && curl -sSL https://github.com/mikefarah/yq/releases/download/1.15.0/yq_linux_amd64 -o /usr/local/bin/yaml \
-    && chmod +x /usr/local/bin/yaml
+    &&  curl -sSL https://github.com/mikefarah/yq/releases/download/2.1.1/yq_linux_$(dpkg --print-architecture) -o /usr/local/bin/yaml \
+    &&  chmod +x /usr/local/bin/yaml \
+    &&  yaml --version
