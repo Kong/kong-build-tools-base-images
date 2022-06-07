@@ -31,7 +31,7 @@ target "deb" {
 }
 
 target "deb-focal" {
-  dockerfile = "Dockerfile.focal.deb"
+  dockerfile = "Dockerfile.deb-focal"
   platforms = ["linux/amd64", "linux/arm64"]
   tags = [    "kong/kong-build-tools:deb-focal",
     notequal("",TAG) ? "kong/kong-build-tools:deb-focal-${TAG}": ""
@@ -39,7 +39,7 @@ target "deb-focal" {
 }
 
 target "rpm-8" {
-  dockerfile = "Dockerfile.8.rpm"
+  dockerfile = "Dockerfile.rpm-8"
   platforms = ["linux/amd64", "linux/arm64"]
   tags = [    "kong/kong-build-tools:rpm-8",
     notequal("",TAG) ? "kong/kong-build-tools:rpm-8-${TAG}": ""
