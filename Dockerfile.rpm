@@ -1,6 +1,6 @@
 FROM centos:7
 
-RUN yum -y install epel-release && \
+RUN yum clean all && \
     yum update -y && \
     yum -y install \
         ca-certificates \
@@ -20,10 +20,14 @@ RUN yum -y install epel-release && \
         perl \
         m4 \
         git \
-        cmake3 \
         rpm-build \
         rpm-sign \
-    && ln -s /usr/bin/cmake3 /usr/bin/cmake \
+    && curl -Lo cmake.tar.gz https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1.tar.gz \
+    && tar -xzvf cmake.tar.gz \
+    && cd cmake* \
+    && ./bootstrap \
+    && make \
+    && make install \
     && curl -sSL https://github.com/mikefarah/yq/releases/download/1.15.0/yq_linux_amd64 -o /usr/local/bin/yaml \
     && chmod +x /usr/local/bin/yaml \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
