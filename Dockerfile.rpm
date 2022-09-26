@@ -3,6 +3,7 @@ FROM centos:7
 RUN yum -y install epel-release && \
     yum update -y && \
     yum -y install \
+        automake \
         bzip2 \
         ca-certificates \
         cmake3 \
@@ -10,6 +11,7 @@ RUN yum -y install epel-release && \
         gcc \
         gcc-c++ \
         git \
+        libtool \
         m4 \
         make \
         openssl-devel \

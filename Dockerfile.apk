@@ -5,6 +5,8 @@ RUN apk update \
     && apk add ca-certificates wget coreutils patch grep \
     && update-ca-certificates \
     && apk add --virtual build-deps \
+        autoconf \
+        automake \
         bash \
         bsd-compat-headers \
         cmake \
@@ -16,6 +18,7 @@ RUN apk update \
         go \
         libc-dev \
         libffi-dev \
+        libtool \
         linux-headers \
         m4 \
         make \
