@@ -1,6 +1,7 @@
 FROM centos:7
 
-RUN yum -y install epel-release && \
+RUN yum -y yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm 
+    yum -y install epel-release && \
     yum update -y && \
     yum -y install \
         automake \
@@ -25,6 +26,7 @@ RUN yum -y install epel-release && \
         unzip \
         wget \
         zlib-devel \
+        which \
     && ln -s /usr/bin/cmake3 /usr/bin/cmake \
     && curl -sSL https://github.com/mikefarah/yq/releases/download/1.15.0/yq_linux_amd64 -o /usr/local/bin/yaml \
     && chmod +x /usr/local/bin/yaml \
