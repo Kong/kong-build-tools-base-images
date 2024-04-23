@@ -7,12 +7,13 @@ on:  # yamllint disable-line rule:truthy
 
 jobs:
   pre-commit:
+    timeout-minutes: ${{ fromJSON(vars.GHA_DEFAULT_TIMEOUT) }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - uses: actions/setup-python@v4.8.0
+    - uses: actions/setup-python@v5.0.0
       with:
         python-version: 3.11
     - name: install shfmt
@@ -27,7 +28,7 @@ jobs:
       run: |
         git version
         git config --global url."https://${TOKEN}:x-oauth-basic@github.com/".insteadOf "git@github.com:"
-    - uses: pre-commit/action@v3.0.0
+    - uses: pre-commit/action@v3.0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         extra_args: --from-ref origin/${{ github.base_ref }} --to-ref ${{github.event.pull_request.head.sha}}
